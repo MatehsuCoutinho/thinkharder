@@ -12,6 +12,12 @@ const conn = require('./db/conn')
 const Tought = require('./models/tought.model')
 const User = require('./models/user.model')
 
+// import routes
+const toughtsRoutes = require('./routes/toughtsRoutes')
+
+// import controller
+const ToughtsController = require('./controllers/ToughtsController')
+
 //template engine
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
@@ -22,7 +28,7 @@ app.use(
         extended: true
     })
 )
-app.use(express.json)
+//app.use(express.json) nao sei pq mas se eu descomento isso aq fica dando loading infinito
 
 //session middleware
 app.use(
@@ -58,6 +64,11 @@ app.use((req, res, next) =>{
 
     next()
 })
+
+//routes
+app.use('/toughts', toughtsRoutes)
+
+app.get('/', ToughtsController.showToughts)
 
 conn
     .sync()
