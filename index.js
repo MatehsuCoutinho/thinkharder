@@ -8,6 +8,10 @@ const app = express()
 
 const conn = require('./db/conn')
 
+// models
+const Tought = require('./models/tought.model')
+const User = require('./models/user.model')
+
 //template engine
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
