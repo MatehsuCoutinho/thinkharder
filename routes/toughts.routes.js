@@ -8,5 +8,6 @@ router.get('/', ToughtController.showToughts)
 router.get('/add', checkAuth, ToughtController.createTought)
 router.post('/add', checkAuth, ToughtController.createToughtSave)
 router.get('/dashboard', checkAuth, ToughtController.dashboard)
+router.post('/remove', checkAuth, ToughtController.ToughtRemove)
 
 module.exports = router
