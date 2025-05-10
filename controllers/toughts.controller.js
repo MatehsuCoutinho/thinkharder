@@ -12,12 +12,12 @@ module.exports = class ToughtsController {
             search = req.query.search
         }
 
-        let order = "DESC"
+        let order = 'DESC'
 
         if (req.query.order === 'old') {
-            let order = "ASC"
+            order = 'ASC'
         } else {
-            order = "DESC"
+            order = 'DESC'
         }
 
         const toughtsData = await Tought.findAll({
